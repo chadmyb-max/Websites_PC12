@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;GPE &amp; EPE Revision Game&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f3f7fb;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #1f4f7b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px 0 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1000px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px auto 40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.scoreboard {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.scoreboard h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.scoreboard span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.scoreboard button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px 18px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card h3 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #1f4f7b;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.question-text {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.options {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.options label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="number"],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="text"] {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-check {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #1abc9c;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.feedback {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.feedback.correct {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.feedback.incorrect {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #eef3ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #1f4f7b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 3px 9px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #777;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hint {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #888;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Gravitational &amp; Elastic Potential Energy – Revision Game&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Answer questions, earn points, and review key concepts of GPE &amp; EPE.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="scoreboard"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Your Score: &lt;span id="score"&gt;0&lt;/span&gt; points&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Try to answer correctly on the first attempt to maximise your points.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="resetGame()"&gt;Reset Game&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q1: Concept – Definition of GPE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q1" data-answered="false" data-points="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Concept • GPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q1. What is Gravitational Potential Energy?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Choose the best definition:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="options"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q1_options" value="a" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>A) Energy stored because a spring is stretched or compressed.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q1_options" value="b" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>B) Energy of motion of an object.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q1_options" value="c" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>C) Stored energy an object has because of its position in a gravitational field.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q1_options" value="d" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>D) Energy released during a chemical reaction.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkMCQ('q1', 'q1_options', 'c')"&gt;Check Answer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q1_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q2: Formula Ep = mgh --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q2" data-answered="false" data-points="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Formula • GPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q2. GPE Formula&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Fill in the missing formula for gravitational potential energy near the Earth's surface:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Ep = &lt;input type="text" id="q2_input" placeholder="e.g. mgh" /&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hint"&gt;Use the symbols m, g, and h.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkText('q2', 'q2_input', ['mgh', 'm g h'])"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Check Answer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q2_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q3: Only vertical height matters --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q3" data-answered="false" data-points="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Concept • Height&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q3. Height in GPE&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>When calculating Ep = mgh, which height matters?</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="options"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q3_options" value="a" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>A) Total distance travelled along a slope.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q3_options" value="b" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>B) Horizontal distance travelled.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q3_options" value="c" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>C) Vertical height above a reference point.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q3_options" value="d" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>D) The radius of the Earth.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkMCQ('q3', 'q3_options', 'c')"&gt;Check Answer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q3_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q4: Calculation – 200 kg lifted 1.5 m --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q4" data-answered="false" data-points="15"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Calculation • GPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q4. Lifting a Weight&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>A 200 kg weight is lifted vertically through 1.5 m. Take g = 9.8 N/kg.&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Calculate the increase in gravitational potential energy (in joules).</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="q4_input" placeholder="Enter Ep in J" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hint"&gt;Use Ep = mgh.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkNumeric('q4', 'q4_input', 2940, 20)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Check Answer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q4_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q5: Energy conversion when falling --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q5" data-answered="false" data-points="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Concept • Energy Transfer&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q5. Falling Object&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>When an object falls freely (ignoring air resistance), its lost gravitational potential energy</p>
+<p class="p1"><span class="Apple-converted-space">          </span>changes into:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="options"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q5_options" value="a" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>A) Elastic potential energy.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q5_options" value="b" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>B) Kinetic energy.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q5_options" value="c" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>C) Light energy.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q5_options" value="d" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>D) Nuclear energy.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkMCQ('q5', 'q5_options', 'b')"&gt;Check Answer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q5_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q6: 1.2 kg at 4 m --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q6" data-answered="false" data-points="15"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Calculation • GPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q6. Object Above Ground&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>An object has mass 1.2 kg and is 4.0 m above the ground. Take g = 9.8 N/kg.&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>a) Calculate its gravitational potential energy (in joules).</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="q6_input" placeholder="Enter Ep in J" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hint"&gt;Ep = mgh&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkNumeric('q6', 'q6_input', 47.04, 1)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Check Answer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q6_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q7: EPE concept --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q7" data-answered="false" data-points="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Concept • EPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q7. Elastic Potential Energy&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Elastic potential energy is the energy stored:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="options"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q7_options" value="a" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>A) In an object because of its height above the ground.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q7_options" value="b" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>B) In a moving object due to its speed.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q7_options" value="c" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>C) In a spring or elastic material when it is stretched or compressed.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="radio" name="q7_options" value="d" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>D) In a battery due to chemical reactions.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkMCQ('q7', 'q7_options', 'c')"&gt;Check Answer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q7_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q8: EPE formula --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q8" data-answered="false" data-points="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Formula • EPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q8. EPE Formula&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Fill in the standard formula for the elastic potential energy stored in a spring:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;E&lt;sub&gt;elastic&lt;/sub&gt; = &lt;input type="text" id="q8_input" placeholder="e.g. 1/2 k x^2" /&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hint"&gt;Use k for spring constant and x for extension.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkText('q8', 'q8_input', ['0.5kx2','1/2kx2','0.5 k x^2','1/2 k x^2','0.5kx^2','1/2kx^2'])"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Check Answer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q8_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q9: EPE numeric – spring 50 N/m, 0.10 m --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q9" data-answered="false" data-points="15"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Calculation • EPE&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q9. Stretching a Spring&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>A spring with spring constant k = 50 N/m is stretched by 0.10 m.&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Calculate the elastic potential energy stored in the spring (in joules).</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="q9_input" placeholder="Enter E in J" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hint"&gt;Use E = ½ kx².&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkNumeric('q9', 'q9_input', 0.25, 0.02)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Check Answer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q9_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Q10: Mixed GPE &amp; EPE – launcher spring --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" id="q10" data-answered="false" data-points="20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Challenge • Mixed&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Q10. Spring Launcher&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="question-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>A 0.20 kg ball is launched horizontally by compressing a spring by 0.10 m. The ball leaves the</p>
+<p class="p1"><span class="Apple-converted-space">          </span>spring with speed 3.0 m/s. Assume no friction or air resistance.&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>What must the spring constant k be (in N/m)?</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="q10_input" placeholder="Enter k in N/m" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hint"&gt;Equate ½kx² to ½mv².&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-check" onclick="checkNumeric('q10', 'q10_input', 180, 5)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Check Answer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feedback" id="q10_feedback"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Try to reach the highest score you can. You can refresh or use the reset button to start again.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let score = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateScoreboard() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('score').textContent = score;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function addPoints(cardId) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const card = document.getElementById(cardId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const alreadyAnswered = card.getAttribute('data-answered') === 'true';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!alreadyAnswered) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pts = parseInt(card.getAttribute('data-points'), 10) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>score += pts;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.setAttribute('data-answered', 'true');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateScoreboard();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function setFeedback(cardId, isCorrect, message) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const fb = document.getElementById(cardId + '_feedback');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>fb.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>fb.classList.remove('correct', 'incorrect');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>fb.classList.add(isCorrect ? 'correct' : 'incorrect');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Multiple choice checker</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkMCQ(cardId, groupName, correctValue) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const options = document.getElementsByName(groupName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let selected = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for (let i = 0; i &lt; options.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (options[i].checked) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>selected = options[i].value;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>break;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!selected) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, false, 'Please select an answer first.');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (selected === correctValue) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, true, 'Correct! Well done.');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addPoints(cardId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, false, 'Not quite. Check your notes and try again.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Short text checker (case-insensitive; matches any of allowed answers)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkText(cardId, inputId, allowedAnswers) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const input = document.getElementById(inputId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const raw = (input.value || '').replace(/\s+/g, '').toLowerCase();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!raw) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, false, 'Please type an answer first.');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const isCorrect = allowedAnswers.some(ans =&gt; ans.replace(/\s+/g, '').toLowerCase() === raw);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (isCorrect) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, true, 'Correct! Good job.');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addPoints(cardId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, false, 'Close, but not correct. Check your formula and try again.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Numeric checker with tolerance</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkNumeric(cardId, inputId, correctValue, tolerance) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const input = document.getElementById(inputId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const val = parseFloat(input.value);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (isNaN(val)) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(cardId, false, 'Please enter a number.');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const diff = Math.abs(val - correctValue);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (diff &lt;= tolerance) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cardId,</p>
+<p class="p1"><span class="Apple-converted-space">          </span>true,</p>
+<p class="p1"><span class="Apple-converted-space">          </span>'Correct! Expected value ≈ ' + correctValue.toFixed(3)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addPoints(cardId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setFeedback(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cardId,</p>
+<p class="p1"><span class="Apple-converted-space">          </span>false,</p>
+<p class="p1"><span class="Apple-converted-space">          </span>'Not quite. Your answer is off. Try recalculating carefully.'</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Reset the game</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetGame() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateScoreboard();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cards = document.querySelectorAll('.card');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cards.forEach(card =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.setAttribute('data-answered', 'false');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const feedbacks = document.querySelectorAll('.feedback');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>feedbacks.forEach(fb =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fb.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fb.classList.remove('correct', 'incorrect');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const inputs = document.querySelectorAll('input[type="number"], input[type="text"]');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>inputs.forEach(inp =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inp.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const radios = document.querySelectorAll('input[type="radio"]');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>radios.forEach(r =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>r.checked = false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
