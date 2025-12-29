@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Grade 12 Math Practice Quiz (MCQ)</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f6f7fb}
+.wrap{max-width:980px;margin:0 auto;padding:24px}
+.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+h1,h2{margin:0 0 10px}
+.muted{color:#555;line-height:1.5}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;background:#1f6feb;color:#fff;font-weight:700}
+.btn.secondary{background:#2ea043}
+.btn.gray{background:#6e7781}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.choice{width:100%;text-align:left;padding:12px;border:1px solid #d0d7de;border-radius:10px;background:#fff;cursor:pointer;margin:8px 0;font-size:16px}
+.choice:hover{background:#f0f6ff}
+.choice.correct{border-color:#2ea043;background:#ecfdf3}
+.choice.wrong{border-color:#cf222e;background:#fff1f2}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:800;font-size:13px}
+.feedback{margin-top:14px;padding:12px;border-radius:10px}
+.feedback.good{background:#ecfdf3;border:1px solid #2ea043}
+.feedback.bad{background:#fff1f2;border:1px solid #cf222e}
+.explain{margin-top:10px;color:#111;line-height:1.45}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+.progress{width:100%;height:10px;background:#eaeef2;border-radius:999px;overflow:hidden}
+.progress>div{height:100%;width:0%;background:#1f6feb}
+input[type=text]{padding:10px;border-radius:10px;border:1px solid #d0d7de;width:360px;max-width:100%}
+.tiny{font-size:13px;color:#555;margin-top:10px;line-height:1.4}
+.math{font-family:"Times New Roman",Times,serif}
+.note{background:#f6f7fa;border:1px solid #eaeef2;padding:10px;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="screen-welcome">
+    <h1>Welcome to Practice ✅</h1>
+    <p class="muted">
+      You will answer <b><span id="totalCount"></span> multiple-choice questions</b>, one at a time.
+      After you click an answer, you will see whether you are correct, the correct answer, and why.
+    </p>
+    <div style="margin:14px 0;">
+      <label><b>Your name:</b></label><br/>
+      <input id="studentName" type="text" placeholder="Type your name"/>
+      <div class="tiny">Your score will be shown at the end.</div>
+    </div>
+    <div class="row">
+      <button class="btn" id="startBtn">Start Practice</button>
+    </div>
+    <div class="tiny note" style="margin-top:14px;">
+      Tip: Some questions use radians. Decimals are acceptable where shown.
+    </div>
+  </div>
+
+  <div class="card" id="screen-quiz" style="display:none;">
+    <div class="topbar">
+      <span class="pill" id="pillProgress">Question 1</span>
+      <span class="pill">Score: <span id="scoreNow">0</span></span>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+
+    <h2 style="margin-top:16px;" id="qText" class="math"></h2>
+    <div id="choices"></div>
+
+    <div id="feedback" style="display:none;" class="feedback">
+      <div><b id="fbTitle"></b></div>
+      <div class="explain" id="fbExplain"></div>
+    </div>
+
+    <div class="row" style="margin-top:16px;">
+      <button class="btn gray" id="prevBtn">Previous</button>
+      <button class="btn" id="nextBtn" disabled>Next</button>
+    </div>
+
+    <p class="tiny">Rule: You must pick an answer to unlock “Next”. Answers are locked after the first click.</p>
+  </div>
+
+  <div class="card" id="screen-result" style="display:none;">
+    <h1>Finished! 🎉</h1>
+    <p class="muted" id="finalLine"></p>
+    <div class="row" style="margin-top:14px;">
+      <button class="btn secondary" id="emailBtn">Email my score to teacher</button>
+      <button class="btn gray" id="restartBtn">Restart</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TEACHER_EMAIL="ChadMyburgh@mapleleafedu.com";
+
+const quiz=[
+  /* Ch1 Reciprocal functions */
+  {q:"Q1. For f(x)=1/(x−2), the vertical asymptote is:",a:["x=2","y=2","x=0","y=0"],c:0,w:"Denominator 0 ⇒ x−2=0 ⇒ x=2."},
+  {q:"Q2. For f(x)=1/(x+5), the horizontal asymptote is:",a:["y=0","x=0","y=5","x=−5"],c:0,w:"For 1/(linear), as x→±∞, f(x)→0 so y=0."},
+  {q:"Q3. Domain restriction for f(x)=1/(2x−6):",a:["x≠3","x≠−3","x≠6","x≠0"],c:0,w:"2x−6=0 ⇒ x=3 excluded."},
+  {q:"Q4. Invariant points of y=1/(x−2) relative to y=1/x are:",a:["(1,−1) and (3,1)","(1,1) and (3,−1)","(2,0) and (0,2)","none"],c:0,w:"Set x−2=±1 ⇒ x=1,3. Then y=1/(−1)=−1 and y=1/1=1."},
+  {q:"Q5. x-intercepts of f(x)=1/(x−4) are:",a:["none","x=4","x=0","x=−4"],c:0,w:"A reciprocal 1/(...) is never 0 ⇒ no x-intercepts."},
+  {q:"Q6. Range of g(x)=1/(x<sup>2</sup>+1) is:",a:["0&lt;y≤1","y≥1","y&lt;0","0&lt;y&lt;1 only"],c:0,w:"Denominator ≥1 so value ≤1 and positive; approaches 0 but never reaches it."},
+  {q:"Q7. Vertical asymptotes of g(x)=1/(x<sup>2</sup>−9):",a:["x=−3 and x=3","y=−3 and y=3","x=−9 and x=9","none"],c:0,w:"x<sup>2</sup>−9=0 ⇒ x=±3."},
+  {q:"Q8. As x→0, 1/x<sup>2</sup> goes to:",a:["+∞","0","1","−∞"],c:0,w:"1/x<sup>2</sup> is positive and blows up near 0 ⇒ +∞."},
+  {q:"Q9. h(x)=1/(x−1)<sup>2</sup> is always:",a:["positive","negative","0 sometimes","both signs"],c:0,w:"Square is positive for x≠1, so reciprocal is positive."},
+  {q:"Q10. x-intercepts of 1/(x<sup>2</sup>−4x+5) are:",a:["0","1","2","infinite"],c:0,w:"Reciprocals never equal 0 ⇒ no x-intercepts."},
+  {q:"Q11. Complete the square: x<sup>2</sup>−4x+5 =",a:["(x−2)<sup>2</sup>+1","(x+2)<sup>2</sup>−1","(x−2)<sup>2</sup>−1","(x−4)<sup>2</sup>+5"],c:0,w:"x<sup>2</sup>−4x+5=(x−2)<sup>2</sup>+1."},
+  {q:"Q12. Minimum of x<sup>2</sup>−4x+5 is:",a:["1","0","5","−1"],c:0,w:"(x−2)<sup>2</sup>≥0 ⇒ (x−2)<sup>2</sup>+1 ≥1."},
+  {q:"Q13. Maximum of 1/(x<sup>2</sup>−4x+5) is:",a:["1","0","∞","1/5"],c:0,w:"Denominator min is 1 ⇒ reciprocal max is 1 at x=2."},
+  {q:"Q14. Vertical asymptotes of y=1/(x<sup>2</sup>−1) are:",a:["x=−1 and x=1","x=0","y=−1 and y=1","y=0"],c:0,w:"x<sup>2</sup>−1=0 ⇒ x=±1."},
+
+  /* Ch2 Trig graphs & transformations */
+  {q:"Q15. Convert 150° to radians (decimal).",a:["2.62","2.36","3.14","1.57"],c:0,w:"150°×π/180=5π/6≈2.62."},
+  {q:"Q16. Convert 2.09 rad to degrees (nearest degree).",a:["120°","110°","90°","60°"],c:0,w:"2.09×180/π≈120°."},
+  {q:"Q17. Amplitude of y=3sin x is:",a:["3","1/3","2π","0"],c:0,w:"Amplitude = |a| = 3."},
+  {q:"Q18. Period of y=sin(2x) is:",a:["π","2π","4π","π/2"],c:0,w:"Period=2π/|2|=π."},
+  {q:"Q19. Period of y=2sin(0.5x) is:",a:["4π","π","2π","π/2"],c:0,w:"Period=2π/0.5=4π."},
+  {q:"Q20. Center line of y=sin x + 4 is:",a:["y=4","x=4","y=0","x=0"],c:0,w:"Shift up 4 ⇒ midline y=4."},
+  {q:"Q21. Maximum of y=−2sin x + 1 is:",a:["3","1","−1","−3"],c:0,w:"Midline 1, amplitude 2 ⇒ max=1+2=3."},
+  {q:"Q22. Minimum of y=2sin x − 1 is:",a:["−3","−1","1","3"],c:0,w:"Min=−1−2=−3."},
+  {q:"Q23. Phase shift of y=sin(x−π/3) is:",a:["right π/3","left π/3","up π/3","down π/3"],c:0,w:"x−c shifts right by c."},
+  {q:"Q24. Period of y=4cos(3(x+π/6)) is:",a:["2π/3","3π","π/3","2π"],c:0,w:"b=3 ⇒ period 2π/3."},
+  {q:"Q25. Horizontal shift of y=4cos(3(x+π/6)) is:",a:["left π/6","right π/6","left π/18","right π/18"],c:0,w:"x+π/6 ⇒ shift left π/6."},
+  {q:"Q26. If max=7 and min=1, amplitude is:",a:["3","4","6","8"],c:0,w:"Amplitude=(7−1)/2=3."},
+  {q:"Q27. If max=7 and min=1, center line is:",a:["y=4","y=3","y=7","y=1"],c:0,w:"Midline=(7+1)/2=4."},
+  {q:"Q28. If 2 cycles occur from x=0 to x=4π, period is:",a:["2π","4π","π","8π"],c:0,w:"Period = total length / cycles = 4π/2 = 2π."},
+
+  /* Ch3 Analytical trig */
+  {q:"Q29. Simplify: sin<sup>2</sup>x + cos<sup>2</sup>x",a:["1","0","sin x","cos x"],c:0,w:"Pythagorean identity ⇒ 1."},
+  {q:"Q30. Simplify: 1 + tan<sup>2</sup>x",a:["sec<sup>2</sup>x","csc<sup>2</sup>x","1","tan x"],c:0,w:"Identity ⇒ sec<sup>2</sup>x."},
+  {q:"Q31. If sin x=3/5 and x is in QII, cos x =",a:["−4/5","4/5","−3/5","3/5"],c:0,w:"3-4-5 triangle, cos magnitude 4/5; QII ⇒ negative."},
+  {q:"Q32. Solve 0°≤x&lt;360°: sin x=0",a:["0°, 180°","90°, 270°","0° only","180° only"],c:0,w:"sin is 0 at 0° and 180° (360° excluded)."},
+  {q:"Q33. Solve 0°≤x&lt;360°: cos x=−1/2",a:["120°, 240°","60°, 300°","45°, 225°","150°, 210°"],c:0,w:"Reference 60°, cos negative in QII & QIII ⇒ 120°,240°."},
+  {q:"Q34. Solve [0,2π): tan x=1",a:["π/4, 5π/4","π/2, 3π/2","π/6, 7π/6","π/3, 4π/3"],c:0,w:"tan=1 at π/4 plus π."},
+  {q:"Q35. Solve [0,2π): 2sin x=1",a:["π/6, 5π/6","π/3, 2π/3","7π/6, 11π/6","π/4, 3π/4"],c:0,w:"sin x=1/2 at π/6 and 5π/6."},
+  {q:"Q36. Solve [0,2π): cos(2x)=0",a:["π/4, 3π/4, 5π/4, 7π/4","π/2, π, 3π/2","0, π","π/8, 3π/8, 5π/8, 7π/8"],c:0,w:"2x=π/2,3π/2,5π/2,7π/2 ⇒ divide by 2."},
+  {q:"Q37. Solve 0°≤x&lt;360°: 2cos x + 1=0",a:["120°, 240°","60°, 300°","90°, 270°","45°, 225°"],c:0,w:"cos x=−1/2 ⇒ 120°,240°."},
+  {q:"Q38. Correct identity:",a:["1−sin<sup>2</sup>x=cos<sup>2</sup>x","1−cos<sup>2</sup>x=sec<sup>2</sup>x","sin x/cos x=cos x/sin x","tan<sup>2</sup>x=1−sec<sup>2</sup>x"],c:0,w:"From sin<sup>2</sup>+cos<sup>2</sup>=1."},
+  {q:"Q39. Solve 0°≤x&lt;360°: sin x = cos x",a:["45°, 225°","135°, 315°","0°, 180°","90°, 270°"],c:0,w:"sin=cos ⇒ tan=1 ⇒ 45°,225°."},
+  {q:"Q40. Solve [0,2π): sin x + cos x = 0",a:["3π/4, 7π/4","π/4, 5π/4","π/2, 3π/2","π/6, 7π/6"],c:0,w:"sin=−cos ⇒ tan=−1 ⇒ 3π/4,7π/4."},
+  {q:"Q41. Solve [0,2π): sin(3x)=0",a:["0, π/3, 2π/3, π, 4π/3, 5π/3","0, π, 2π","π/3, π","π/6, π/2, 5π/6"],c:0,w:"3x=kπ, k=0..5 ⇒ listed solutions."},
+  {q:"Q42. Solve 0°≤x&lt;360°: sin x = −sin 20°",a:["200°, 340°","20°, 160°","160°, 200°","340° only"],c:0,w:"x=180°+20°=200° or x=360°−20°=340°."},
+
+  /* Ch5 Sequences & series */
+  {q:"Q43. Arithmetic: a<sub>1</sub>=5, d=3. Find a<sub>6</sub>.",a:["20","18","23","14"],c:0,w:"a<sub>6</sub>=5+5·3=20."},
+  {q:"Q44. Arithmetic: a<sub>1</sub>=12, d=−2. Find a<sub>10</sub>.",a:["−6","−8","−10","0"],c:0,w:"a<sub>10</sub>=12+9(−2)=−6."},
+  {q:"Q45. Geometric: a<sub>1</sub>=3, r=2. Find a<sub>7</sub>.",a:["192","96","384","48"],c:0,w:"a<sub>7</sub>=3·2<sup>6</sup>=192."},
+  {q:"Q46. Geometric: a<sub>1</sub>=81, r=1/3. Find a<sub>5</sub>.",a:["1","3","9","27"],c:0,w:"a<sub>5</sub>=81(1/3)<sup>4</sup>=1."},
+  {q:"Q47. S<sub>10</sub> for arithmetic a<sub>1</sub>=4, d=2 is:",a:["130","120","110","100"],c:0,w:"a<sub>10</sub>=22; S<sub>10</sub>=10/2(4+22)=130."},
+  {q:"Q48. S<sub>6</sub> for geometric a=5, r=2 is:",a:["315","310","160","155"],c:0,w:"S<sub>6</sub>=5(2<sup>6</sup>−1)/(2−1)=315."},
+  {q:"Q49. Sum to infinity of 9+3+1+… is:",a:["13.5","12","10","9"],c:0,w:"a=9,r=1/3 ⇒ S∞=9/(1−1/3)=13.5."},
+  {q:"Q50. For 6+2+2/3+…, common ratio r is:",a:["1/3","2/3","3","1/2"],c:0,w:"r=2/6=1/3 (and (2/3)/2=1/3)."},
+  {q:"Q51. If a=12 and r=0.25, S∞ is:",a:["16","12.5","15","48"],c:0,w:"S∞=12/(1−0.25)=16."},
+  {q:"Q52. If a<sub>1</sub>=7 and a<sub>20</sub>=64, d is:",a:["3","2","4","5"],c:0,w:"64=7+19d ⇒ d=3."},
+
+  /* Unit 5 Probability/Perm/Comb/Binomial */
+  {q:"Q53. Choose president and vice president from 12 students. Use:",a:["Permutation","Combination","Neither","Always 1 way"],c:0,w:"Different roles ⇒ order matters ⇒ permutation idea."},
+  {q:"Q54. Choose 3 students from 10 for a committee. Use:",a:["10C3","10P3","3C10","3P10"],c:0,w:"Committee ignores order ⇒ combinations."},
+  {q:"Q55. Evaluate 8P2.",a:["56","28","64","16"],c:0,w:"8P2=8×7=56."},
+  {q:"Q56. Evaluate 9C2.",a:["36","72","18","9"],c:0,w:"9C2=9×8/2=36."},
+  {q:"Q57. 4-digit code (0–9), repeats allowed. Number of codes:",a:["10<sup>4</sup>","10P4","10C4","4<sup>10</sup>"],c:0,w:"10 choices each of 4 positions ⇒ 10<sup>4</sup>."},
+  {q:"Q58. In (2x−3)<sup>5</sup>, coefficient of x<sup>5</sup> is:",a:["32","−32","243","−243"],c:0,w:"x<sup>5</sup> term only from (2x)<sup>5</sup> ⇒ 2<sup>5</sup>=32."},
+  {q:"Q59. In (x+2)<sup>6</sup>, coefficient of x<sup>4</sup> is:",a:["60","30","15","120"],c:0,w:"Choose 2 of six 2's: C(6,2)·2<sup>2</sup>=15·4=60."},
+  {q:"Q60. Flip a fair coin 5 times. P(exactly 3 heads) =",a:["10/32","5/32","16/32","1/2"],c:0,w:"C(5,3)(1/2)<sup>5</sup>=10/32."}
+];
+
+let state={idx:0,score:0,ans:Array(quiz.length).fill(null),locked:Array(quiz.length).fill(false),name:""};
+const $=id=>document.getElementById(id);
+
+function show(id){["screen-welcome","screen-quiz","screen-result"].forEach(s=>$(s).style.display="none");$(id).style.display="block";}
+function updateProgress(){
+  $("pillProgress").textContent=`Question ${state.idx+1} of ${quiz.length}`;
+  $("scoreNow").textContent=state.score;
+  $("progressBar").style.width=`${Math.round((state.idx/quiz.length)*100)}%`;
+}
+function showFeedback(chosen){
+  const item=quiz[state.idx],ci=item.c,ok=(chosen===ci);
+  $("feedback").style.display="block";
+  $("feedback").className="feedback "+(ok?"good":"bad");
+  $("fbTitle").textContent=ok?"Correct ✅":"Incorrect ❌";
+  $("fbExplain").innerHTML=`<div><b>Correct answer:</b> ${String.fromCharCode(65+ci)}) <span class="math">${item.a[ci]}</span></div>
+  <div style="margin-top:8px;"><b>Why:</b> <span class="math">${item.w}</span></div>`;
+}
+function renderQuestion(){
+  const item=quiz[state.idx];
+  $("qText").innerHTML=item.q;
+  $("choices").innerHTML="";
+  $("feedback").style.display="none";
+  $("nextBtn").disabled=(state.ans[state.idx]===null);
+
+  item.a.forEach((ch,i)=>{
+    const b=document.createElement("button");
+    b.className="choice math";
+    b.innerHTML=String.fromCharCode(65+i)+") "+ch;
+
+    if(state.ans[state.idx]!==null){
+      const chosen=state.ans[state.idx];
+      if(i===item.c) b.classList.add("correct");
+      if(i===chosen && chosen!==item.c) b.classList.add("wrong");
+      b.disabled=true;
+      $("nextBtn").disabled=false;
+      showFeedback(chosen);
+    }
+    b.addEventListener("click",()=>handleAnswer(i));
+    $("choices").appendChild(b);
+  });
+
+  $("prevBtn").disabled=(state.idx===0);
+  updateProgress();
+}
+function handleAnswer(i){
+  if(state.locked[state.idx]) return;
+  state.ans[state.idx]=i;
+  state.locked[state.idx]=true;
+  if(i===quiz[state.idx].c) state.score+=1;
+  renderQuestion();
+}
+function next(){
+  if(state.ans[state.idx]===null) return;
+  if(state.idx<quiz.length-1){state.idx++;renderQuestion();} else finish();
+}
+function prev(){ if(state.idx>0){state.idx--;renderQuestion();} }
+
+function esc(t){return (t??"").toString().replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function finish(){
+  $("progressBar").style.width="100%";
+  const total=quiz.length,pct=Math.round((state.score/total)*100),stamp=new Date().toLocaleString();
+  const name=esc(state.name?state.name:"Student");
+  $("finalLine").innerHTML=`<b>${name}</b>, your score is <b>${state.score} / ${total}</b> (${pct}%).<br/>Completed: ${esc(stamp)}`;
+  const subject=encodeURIComponent("Grade 12 Practice Quiz Score");
+  const body=encodeURIComponent(`Student name: ${name}
+Score: ${state.score} / ${total} (${pct}%)
+Completed: ${stamp}`);
+  $("emailBtn").onclick=()=>{window.location.href=`mailto:${TEACHER_EMAIL}?subject=${subject}&body=${body}`;};
+  show("screen-result");
+}
+
+document.getElementById("totalCount").textContent=quiz.length;
+$("startBtn").addEventListener("click",()=>{
+  state.name=$("studentName").value.trim();
+  state.idx=0;state.score=0;
+  state.ans=Array(quiz.length).fill(null);
+  state.locked=Array(quiz.length).fill(false);
+  show("screen-quiz");renderQuestion();
+});
+$("nextBtn").addEventListener("click",next);
+$("prevBtn").addEventListener("click",prev);
+$("restartBtn").addEventListener("click",()=>show("screen-welcome"));
+</script>
+</body>
+</html>
